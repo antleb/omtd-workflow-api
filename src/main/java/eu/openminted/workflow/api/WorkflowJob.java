@@ -29,7 +29,7 @@ public class WorkflowJob {
         this.workflow = workflow;
     }
 
-    public String getCorupusId() {
+    public String getCorpusId() {
         return corpusId;
     }
 
