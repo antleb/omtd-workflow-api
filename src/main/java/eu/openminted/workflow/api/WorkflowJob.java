@@ -28,4 +28,12 @@ public class WorkflowJob {
     public void setWorkflow(Component workflow) {
         this.workflow = workflow;
     }
+
+    public String getCorupusId() {
+        return corpusId;
+    }
+
+    public void setCorpusId(String corpusId) {
+        this.corpusId = corpusId;
+    }
 }
