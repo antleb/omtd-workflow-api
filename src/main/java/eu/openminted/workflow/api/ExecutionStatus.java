@@ -1,7 +1,7 @@
 package eu.openminted.workflow.api;
 
 /**
- * Created by antleb on 07/04/2017.
+ * An immutable object which records the current status of a workflow execution
  */
 public class ExecutionStatus {
     public enum Status {
@@ -14,21 +14,38 @@ public class ExecutionStatus {
     }
 
     private Status status;
+    
+    private String corpusId;
+    
+    private Throwable failureCause;
 
     // anything else to be decided. Error messages, statistics, execution metadata (dates etc)...
 
-    public ExecutionStatus() {
-    }
-
     public ExecutionStatus(Status status) {
         this.status = status;
+    }
+    
+    public ExecutionStatus(String corpusId) {
+    	this.corpusId = corpusId;
+    	this.status = Status.FINISHED;
+    }
+    
+    public ExecutionStatus(Throwable failureCause) {
+    	this.failureCause = failureCause;
+    	this.status = Status.FAILED;
     }
 
     public Status getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public String getCorpusID() {
+    	return corpusId;
+    }
+    
+    public Throwable getFailureCause() {
+    	return failureCause;
     }
 }
+
+
