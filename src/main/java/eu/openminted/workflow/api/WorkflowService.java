@@ -1,5 +1,7 @@
 package eu.openminted.workflow.api;
 
+import eu.openminted.registry.domain.Component;
+
 /**
  * <p>
  * This service is called by the registry (and external users through a REST API) to manage the execution of workflows.
@@ -28,4 +30,6 @@ public interface WorkflowService {
     public void resume(String workflowExecutionId) throws WorkflowException;
 
     public ExecutionStatus getExecutionStatus(String workflowExecutionId) throws WorkflowException;
+    
+    public void delete(Component workflow) throws WorkflowException;
 }
