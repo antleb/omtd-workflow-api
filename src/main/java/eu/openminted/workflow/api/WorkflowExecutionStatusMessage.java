@@ -1,5 +1,7 @@
 package eu.openminted.workflow.api;
 
+import java.util.List;
+
 public class WorkflowExecutionStatusMessage {
 
     private String workflowExecutionID;
@@ -9,6 +11,9 @@ public class WorkflowExecutionStatusMessage {
     private String resultingCorpusID;
     private String userID;
     private String error;
+    
+    private String workflowInvocationID;
+    private String workflowJobIDs;
 
     public WorkflowExecutionStatusMessage() {
 
@@ -24,7 +29,23 @@ public class WorkflowExecutionStatusMessage {
         this.userID = userID;
     }
 
-    public String getResultingCorpusID() {
+    public String getWorkflowInvocationID() {
+		return workflowInvocationID;
+	}
+
+	public void setWorkflowInvocationID(String workflowInvocationID) {
+		this.workflowInvocationID = workflowInvocationID;
+	}
+
+	public String getWorkflowJobIDs() {
+		return workflowJobIDs;
+	}
+
+	public void setWorkflowJobIDs(String workflowJobIDs) {
+		this.workflowJobIDs = workflowJobIDs;
+	}
+
+	public String getResultingCorpusID() {
         return resultingCorpusID;
     }
 
