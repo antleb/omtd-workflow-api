@@ -25,20 +25,43 @@ public class ExecutionStatus {
 
     // anything else to be decided. Error messages, statistics, execution metadata (dates etc)...
 
-    public ExecutionStatus(Status status) {
-        this.status = status;
+    public ExecutionStatus(String userID, String workflowId, String corpusId) {
+        this.status = Status.PENDING;
+        
+        this.userId = userID;
+        this.workflowId = workflowId;
+        this.corpusId = corpusId;
     }
     
-    public ExecutionStatus(String corpusId) {
+    public ExecutionStatus(ExecutionStatus previous, Status status) {
+    	this.status = status;
+    	
+    	this.corpusId = previous.corpusId;
+    	this.userId = previous.userId;
+    	this.workflowId = previous.workflowId;
+    	this.failureCause = previous.failureCause;
+    }
+    
+    public ExecutionStatus(ExecutionStatus previous, String corpusId) {
     	this.corpusId = corpusId;
     	this.status = Status.FINISHED;
+    	
+    	this.userId = previous.userId;
+    	this.workflowId = previous.workflowId;
+    	this.failureCause = previous.failureCause;
     }
     
-    public ExecutionStatus(Throwable failureCause) {
+    public ExecutionStatus(ExecutionStatus previous, Throwable failureCause) {
     	this.failureCause = failureCause;
     	this.status = Status.FAILED;
+    	
+    	this.corpusId = previous.corpusId;
+    	this.userId = previous.userId;
+    	this.workflowId = previous.workflowId;
     }
 
+    
+    
     public Status getStatus() {
         return status;
     }
