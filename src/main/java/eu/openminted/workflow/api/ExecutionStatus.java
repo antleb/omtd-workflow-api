@@ -16,6 +16,8 @@ public class ExecutionStatus {
     private Status status;
     
     private String corpusId;
+
+    private String subArchive;
     
     private String userId;
     
@@ -81,7 +83,6 @@ public class ExecutionStatus {
     public void setUserID(String userId) {
     	this.userId = userId;
     }
-    
 
     public String getWorkflowId() {
     	return workflowId;
@@ -90,10 +91,17 @@ public class ExecutionStatus {
     public void setWorkflowId(String workflowId) {
     	this.workflowId = workflowId;
     }
-    
-    
+
     public Throwable getFailureCause() {
     	return failureCause;
+    }
+
+    public String getSubArchive() {
+        return subArchive;
+    }
+
+    public void setSubArchive(String subArchive) {
+        this.subArchive = subArchive;
     }
 }
 
